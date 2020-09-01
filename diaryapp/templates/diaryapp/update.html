@@ -1,0 +1,41 @@
+{% extends 'diaryapp/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div class="col-md-2 full-height">
+
+    <a href="http://twitter.com" class="btn btn-outline-light btn-lg btn-block" style="margin-top:250px">TT</a>
+    <a href="http://facebook.com" class="btn btn-outline-light btn-lg btn-block">FB</a>
+    <a href="http://instagram.com" class="btn btn-outline-light btn-lg btn-block">IG</a>
+
+
+
+</div>
+
+<div class="col-md-10 image">
+    <div class="row" style="margin-top: 50px;">
+        <div class="col-md-6 offset-md-3">
+            <div class="card bg-light">
+                <div class="card-body">
+                    <form method="POST">
+                        {% csrf_token %}
+
+                        <div class="fieldset">
+                            <legend>Update</legend>
+                        </div>
+                        {{form|crispy}}
+                        <div class="d-flex">
+                            <button type="submit" class="btn btn-secondary ml-auto">Update</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+{% endblock content %}

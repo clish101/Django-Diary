@@ -1,0 +1,51 @@
+{% extends 'diaryapp/base.html' %}
+
+{% block content %}
+
+<div class="col-md-2 full-height">
+    <a href="{% url 'logout' %}" class="btn btn-outline-light btn-lg btn-block" style="margin-top:25px">logout</a>
+
+    {% for event in events%}
+    <a class="btn btn-outline-light btn-lg btn-block" style="margin-top:25px">{{event.date_posted|date:'M d, Y'}}</a>
+
+    {% endfor %}
+
+</div>
+
+<div class="col-md-10 image">
+    <div class="bg-light mt-2 d-flex py-3">
+        <h4 class="float-right"><a href="{% url 'memories' %}" style="color:#000;text-decoration:none">My Memories</a>
+        </h4>
+        <h4 class="ml-auto"><a href="" class="text-dark" style="text-decoration:none">New Memory</a></h4>
+    </div>
+
+
+
+
+    <div class="card mt-2">
+        <div class="card-header d-flex">
+            <h4>{{event.title}} </h4>
+            <small class="text-muted ml-auto">{{event.date_posted|date:'M d, Y'}}</small>
+        </div>
+        <div class="card-body">
+            {{event.content}}
+            <div class="mt-2 d-flex">
+                <a href="{% url 'delete' event.id %}" class="btn btn-outline-danger"
+                    style="text-decoration:none">Delete</a>
+                <a href="{% url 'update' event.id %}" class="btn btn-outline-primary ml-auto"
+                    style="text-decoration:none">Update</a>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+</div>
+
+
+
+
+{% endblock content %}

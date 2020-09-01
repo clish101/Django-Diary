@@ -1,0 +1,35 @@
+{% extends 'diaryapp/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div class="col-md-2 full-height">
+
+    <a href="http://twitter.com" class="btn btn-outline-light btn-lg btn-block" style="margin-top:250px">TT</a>
+    <a href="http://facebook.com" class="btn btn-outline-light btn-lg btn-block">FB</a>
+    <a href="http://instagram.com" class="btn btn-outline-light btn-lg btn-block">IG</a>
+
+
+
+</div>
+
+<div class="col-md-10 image">
+    <div class="row" style="margin-top: 50px;">
+        <div class="col-md-6 offset-md-3">
+            <div class="card bg-light">
+                <div class="card-body">
+                    <div class="card-text d-flex">
+                        You have successfully logged out
+                        <small class="text-muted ml-auto"><a href="{% url 'login' %}">Get back in</a></small>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+{% endblock content %}
